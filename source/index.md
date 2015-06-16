@@ -5,6 +5,7 @@ toc_footers:
   - <a href='http://github.com/tripit/slate'>Documentation Powered by Slate</a>
 
 includes:
+  - actions
   - survey_questions
   - api_calls
 

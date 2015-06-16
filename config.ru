@@ -6,7 +6,7 @@ require 'rack/contrib/try_static'
 # NOTE: you need to stick this above the build script like shown below
 
 use Rack::Auth::Basic, "Restricted Area" do |username, password|
-  [username, password] == ['username', 'password']
+  [username, password] == ['pchdigital', 'livetowin']
 end
 
 # Serve files from the build directory
