@@ -20,7 +20,7 @@ The attributes present in a survey question will vary depending on its type. How
 Name | Type | Description
 --------- | ---- | -----------
 id | number | a number uniquely identifying this survey question
-question_type | enumerated string | identifies the type of question. Valid values are: "single_choice", "multi_choice", "numeric", or "text"
+question_type | enumerated string | identifies the type of question. Valid values are: `single_choice`, `numeric`, or `text`
 text | string | the text of the survey question
 
 ## Question Type: Text
