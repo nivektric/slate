@@ -1,6 +1,6 @@
 # Actions
 
-## Survey
+## Action: Survey
 ```json
 {
   "type" : "survey",
@@ -45,7 +45,7 @@ current_survey_question | number | the question number (out of the total number 
 total_survey_questions | number | the total number of survey questions in this survey, used to display progress information to the user
 next_question | survey_question | the next question in the survey. See [survey questions](#survey-questions) for details on this structure. This value will be `null` if the user is finished with the survey.
 
-## Prize Wheel
+## Action: Prize Wheel
 ```json
 {
     "type" : "prize_wheel",
@@ -75,7 +75,9 @@ Display the prize wheel.
 
 Name | Type |  Description
 ---- | ---- | -----------
-version | number | numeric version number of the wheel. This will be updated any time material changes are made to the wheel settings and must be passed to the "spinWheel" API call to indicate which set of odds the server should use in determining the result.
+version | number | numeric version number of the wheel. This will be updated any time material changes are made to the wheel settings and must be passed to the `spinWheel` API call to indicate which set of odds the server should use in determining the result.
+get_coins_enabled | boolean | indicates whether or not to display the "Get Coins" button
+no_spins_action | string | action to perform when a user runs out of spins. If this action is non-null, then done_action and more_action will be ignored.
 done_action | string | action to direct a user to after they select "Done"
 more_action | string | action to direct a user to after they select "Get More Spins"
 number_of_positions | number | the number of segments on the current wheel. This is used by the client to determine how to rotate the wheel when it is spun
@@ -87,3 +89,58 @@ highlight_image | string | URL to the image used to highlight the selected wheel
 bracket_image | string | URL to the image for the bracket highlighting the selected wheel segment, must be 558x558
 center_image | string | URL to the image for the center of the wheel, must be 146x146
 center_glow_image | string | URL to the image for the glowing center of the wheel, must be 146x146
+
+## Action: Interstitial Interactive
+> With a link URL
+
+```json
+{
+    "type" : "interstitial_interactive",
+    "data" : {
+        "image_url" : "http://www.livetowin.com/img/xml/livetowin/tips/tip-polls.png",
+        "hot_spots" : [
+            {
+                "x" : 112,
+                "y" : 320,
+                "width" : 97,
+                "height" : 34,
+                "image_url" : "http://www.livetowin.com/img/xml/livetowin/tips/btn-next.png",
+                "link_url" : "livetowin://continue"
+            }
+        ]
+    }
+}
+```
+
+> With a target action
+
+```json
+{
+    "type" : "interstitial_interactive",
+    "data" : {
+        "image_url" : "http://www.livetowin.com/img/xml/livetowin/tips/tip-polls.png",
+        "hot_spots" : [
+            {
+                "x" : 112,
+                "y" : 320,
+                "width" : 97,
+                "height" : 34,
+                "image_url" : "http://www.livetowin.com/img/xml/livetowin/tips/btn-next.png",
+                "target_action" : "video_fyber"
+            }
+        ]
+    }
+}
+```
+
+Action type: `interstitial_interactive`
+
+A view that will display the associated image inline with other earn actions, instead of modally like the `ad_web` or
+ `ad_native` types. This differs from interstitial_inline in that hot spots can be declared and placed dynamically.
+
+### Attributes
+
+Name | Type |  Description
+---- | ---- | -----------
+image_url | string | URL of an image to display with dimensions 640x734
+hot_spots | array | an array of [hot spots](#hot-spots) to be displayed on the interstitial

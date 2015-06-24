@@ -7,6 +7,7 @@ toc_footers:
 includes:
   - actions
   - survey_questions
+  - hot_spots
   - api_calls
 
 search: true
