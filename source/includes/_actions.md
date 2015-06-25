@@ -146,6 +146,43 @@ Name | Type |  Description
 image_url | string | URL of an image to display with dimensions 640x734
 hot_spots | array | an array of [hot spots](#hot-spots) to be displayed on the interstitial
 
+## Action: Ad Native
+
+> Sample ad_native
+
+```json
+{
+    "type" : "ad_native",
+    "data" : {
+        "title" : "BONUS SPINS!",
+        "image_url" : "http://www.livetowin.com/img/livetowin/ads/video/main-bonusspins.jpg",
+        "hot_spots" : [
+            {
+                "x" : 65,
+                "y" : 305,
+                "width" : 185,
+                "height" : 54,
+                "image_url" : "http://www.livetowin.com/img/livetowin/ads/video/btn-checkitout.jpg",
+                "target_action" : "video_fyber_spins"
+            }
+        ]
+    }
+}
+```
+
+Action type: `ad_native`
+
+Display the ad with the same background as an `ad_web` action. Instead of displaying a web view in the center, display a
+background image along with one or more hot spots, similar to an `interactive_interstitial`.
+
+### Attributes
+
+Name | Type |  Description
+---- | ---- | -----------
+title | string | title to display in the top bar of the ad
+image_url | string | URL of an image to display with dimensions 564x788
+hot_spots | array | an array of [hot spots](#hot-spots) to be displayed on the interstitial
+
 ## Action: Videos
 ```json
 {
