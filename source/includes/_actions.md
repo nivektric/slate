@@ -144,3 +144,37 @@ Name | Type |  Description
 ---- | ---- | -----------
 image_url | string | URL of an image to display with dimensions 640x734
 hot_spots | array | an array of [hot spots](#hot-spots) to be displayed on the interstitial
+
+## Action: Videos
+```json
+{
+    "type" : "video_adcolony",
+    "data" : {
+        "entries" : 1000,
+        "prompt_before" : false,
+        "prompt_more" : true,
+        "backup" : "video_brightroll",
+        "requires_wifi" : false
+    }
+}
+```
+
+There are multiple different video actions, but all have the same options. The type simply defines which provider to source the videos from.
+
+The valid video action types are:
+
+* `video_fyber`
+* `video_adcolony`
+* `video_brightroll`
+* `video_sessionm`
+* `video_hyprmx`
+
+### Attributes
+
+Name | Type |  Description
+---- | ---- | -----------
+entries | number | the number of entries a user will get from watching a video
+prompt_before | boolean | value indicating whether the user should be prompted before showing a video. This value is optional, and if it is not present, the behavior defaults to prompting if this action is in the context of the dynamic path, or not prompting if it is outside the dynamic path
+prompt_more | boolean | value indicating whether the user should be prompted to watch more videos after finishing the first (optional, defaults to `false`)
+backup | string | name of another video_* action that should be used if no videos are available from the given provider (optional)
+requires_wifi | boolean |  value indicating whether the client should only play videos for this action if the user is on a wifi connection (optional, defaults to `false`)
