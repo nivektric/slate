@@ -52,6 +52,7 @@ next_question | survey_question | the next question in the survey. See [survey q
     "data" : {
         "version" : 7,
         "get_coins_enabled" : false,
+        "no_spins_action" : "bonus",
         "done_action" : null,
         "more_action" : null,
         "number_of_positions" : 12,
